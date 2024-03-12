@@ -1,38 +1,536 @@
-.App {
-  text-align: center;
+.App{
+  overflow: scroll;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 75px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 17px 17px;
+
+  z-index: 10;
+  padding: 0 20px;
+
+}
+.header__content{
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+.links{
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  position: absolute;
+  top: 14px;
+  left: 0;
+
+  width: 126px;
+  height: 47px;
+
+  background: url(assets/logo.svg) center center no-repeat;
+  background-size: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.link{
+  position: relative;
+  /*text-transform: uppercase;*/
+  margin-right: 50px;
+
+  font-weight: bold;
+  font-size: 1.7rem;
+  line-height: 1.7rem;
+
+  color: black;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+.links .link:last-child{
+  margin-right: 0;
+}
+.link:after{
+  position: absolute;
+  content: '';
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+}
+.link:hover{
+  text-decoration: underline;
+  color: #313131;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+#firstBlock{
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+  min-height: 720px;
+
+  background: url(assets/firstBg.png) center center no-repeat;
+  background-size: cover;
+}
+.blur{
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.15);
+}
+
+
+
+
+/*Наши игры*/
+
+#ourGames{
+  width: 100%;
+  padding: 20px 0 40px 0;
+  background: #F7F7F7;
+}
+.content__header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 4.8rem;
+
+  margin-bottom: 30px;
+}
+.header__games{
+  width: 160px;
+  height: 160px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  border-radius: 50%;
+  background-color: #369E49;
+  margin-left: 10px;
+}
+.content{
+  width: 100%;
+  max-width: 780px;
+
+  background: #F7F7F7;
+
+  margin: 0 auto;
+}
+
+.ourGames__games{
+  position: relative;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+
+  z-index: 2;
+}
+
+.ourGames__game{
+  position: relative;
+
+  width: 380px;
+  height: 200px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  opacity: 0;
+}
+.game__words{
+  background: url(assets/games/words.png) center center no-repeat;
+  background-size: cover;
+}
+.game__farm{
+  position: relative;
+  background: url(assets/games/farm.png) center center no-repeat;
+  background-size: cover;
+}
+.game__farm:before{
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: -103px;
+
+
+  width: 86px;
+  height: 123px;
+
+  background: url(assets/chicken.png) center center no-repeat;
+  background-size: 100%;
+  z-index: -1;
+}
+.game__age{
+  background: url(assets/games/age.png) center center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.game__age:before{
+  content: '';
+  position: absolute;
+  left: -224px;
+  top: 40%;
+
+  width: 267px;
+  height: 252px;
+
+  background: url(assets/dragon.png) center center no-repeat;
+  background-size: 100%;
+
+
+  transform: translateY(-50%) rotate(280deg);
+}
+.game__rpg{
+  background: url(assets/firstBg.png) center center no-repeat;
+  background-size: cover;
+}
+.game__cross{
+  background: url(assets/games/cross.png) center center no-repeat;
+  background-size: cover;
+}
+.game__brain{
+  background: url(assets/games/brain.png) center center no-repeat;
+  background-size: cover;
+}
+
+.ourGames__aboutGame{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+
+  background-color: rgba(13, 16, 8, 0.65);
+
+  padding: 15px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  color: white;
+  /*text-shadow: 0px 0px 4px rgba(0,0,0,0.5);*/
+  user-select: none;
+  /*box-shadow: 0 0 8px black;*/
+}
+.ourGames__name{
+  font-size: 2.3rem;
+  text-transform: uppercase;
+}
+.ourGames__description{
+  /*width: 70%;*/
+  font-size: 1.5rem;
+}
+
+
+.ourGames__gameShowed{
+  animation: gameAppearRight 1s forwards linear;
+}
+.ourGames__gameShowed.game__age, .ourGames__gameShowed.game__rpg, .ourGames__gameShowed.game__cross{
+  animation: gameAppearLeft 1s forwards linear;
+}
+@keyframes gameAppearRight {
+  0%{
+    right: -100vw;
+    opacity: 1;
+  }
+  100%{
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes gameAppearLeft {
+  0%{
+    left: -100vw;
+    opacity: 1;
+  }
+  100%{
+    left: 0;
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+/*Наша команда*/
+#ourTeam{
+  width: 100%;
+  padding: 100px 0 40px 0;
+}
+#ourTeam .content{
+  background-color: white;
+}
+.ourTeam__block{
+  position: relative;
+
+  background: #F4F4F4;
+  border-radius: 20px;
+
+  padding: 40px;
+  font-size: 1.8rem;
+}
+.ourTeam__block:before, .ourTeam__block:after{
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 20px;
+
+  background: url(assets/cow_stay.svg) center center no-repeat;
+  background-size: 100%;
+
+  width: 100px;
+  height: 100px;
+}
+.ourTeam__block:before{
+  transform: scaleX(-1) rotate(6deg);
+}
+.ourTeam__block:after{
+  transform: rotate(6deg);
+  left: auto;
+  right: 20px;
+}
+.ourTeam__header{
+  font-size: 3.6rem;
+  margin-bottom: 40px;
+}
+.ourTeam__flex{
+  width: 100%;
+
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  margin-bottom: 20px;
+}
+.ourTeam__firstFlex{
+  width: 60%;
+}
+.ourTeam__firstBlock{
+  margin-bottom: 20px;
+}
+.ourTeam__cow{
+  width: 39%;
+  height: 220px;
+  flex: 1 1 auto;
+
+
+  background: url(assets/cow.svg) center center no-repeat;
+  background-size: contain;
+  transform: scaleX(-1);
+}
+
+
+/*Контакты*/
+#contacts{
+  position: relative;
+
+  background: url(assets/bgGreen.png) center center no-repeat;
+  background-size: cover;
+
+  padding: 40px 0;
+}
+#contacts .blur{
+  background: rgba(9, 23, 24, 0.7);
+}
+#contacts .content{
+  position: relative;
+
+  background-color: transparent;
+  z-index: 1;
+}
+.contacts__header{
+  font-size: 4.8rem;
+  color: white;
+  margin-bottom: 20px;
+}
+.contacts__flex{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+.contacts__info{
+  width: 48%;
+  margin-right: 50px;
+}
+a{
+  all: unset;
+  box-sizing: border-box;
+}
+.contacts__headerInfo, .contacts__sendInfo, .contacts__email{
+  font-size: 2.7rem;
+  line-height: 2.7rem;
   color: white;
 }
+.contacts__headerInfo{
+  user-select: none;
+}
+.contacts__sendInfo{
+  font-size: 1.8rem;
 
-.App-link {
-  color: #61dafb;
+  margin: 20px 0;
+}
+.contacts__email{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contacts__email a{
+  cursor: pointer;
+}
+.contacts__email:hover{
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon{
+  position: relative;
+
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 20px;
+
+  cursor: pointer;
+}
+.icon:after{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  right: -10px;
+}
+.icon__mail{
+  background: url(assets/icons/mail.svg) center center no-repeat, white;
+  background-size: 45%;
+  margin-right: 15px;
+}
+.social__network{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+.social__network .icon:last-child{
+  margin: 0;
+}
+.icon__inst{
+  background: url(assets/icons/inst.svg) center center no-repeat, white;
+  background-size: 45%;
+}
+.icon__vk{
+  background: url(assets/icons/vk.svg) center center no-repeat, white;
+  background-size: 45%;
+}
+.icon__tg{
+  background: url(assets/icons/tg.svg) center center no-repeat, white;
+  background-size: 45%;
+}
+
+.law{
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-top: 60px;
+}
+
+/*Вакансии*/
+#jobs{
+  padding: 80px 0;
+}
+#jobs .content{
+  background-color: white;
+}
+.content__info{
+  font-size: 2rem;
+  width: 50%;
+}
+.job{
+  width: 100%;
+  height: 269px;
+  border: 1px solid #C4C4C4;
+  border-radius: 40px;
+  padding: 20px 40px;
+
+  margin-top: 30px;
+}
+.job__flex{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  height: 100%;
+}
+.job__firstBlock, .job__secondBlock{
+  width: 35%;
+  height: 100%;
+}
+.job__firstBlock{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+.job__title{
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.job__respond{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+
+  font-size: 2rem;
+  color: white;
+
+  background: #35B44A;
+  border-radius: 17px;
+
+  padding: 10px 0;
+
+  cursor: pointer;
+}
+.job__secondBlock{
+  width: 63%;
+  padding-left: 30px !important;
+  border-left: 1px solid rgba(216, 216, 216, 1);
+
+  list-style-type: disc !important;
+}
+.job__secondBlock li{
+  font-size: 1.6rem;
+  margin-bottom: 4px;
 }
