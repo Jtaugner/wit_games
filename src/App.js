@@ -3,7 +3,7 @@ import './mobile.css';
 import {Component} from "react";
 import {jobs, games, gamesEN, jobsEN} from './projectCommon';
 
-let isEnglishBuild = false;
+let isEnglishBuild = true;
 let allGames = games;
 let allJobs = jobs;
 if(isEnglishBuild){
