@@ -3,13 +3,14 @@ import './mobile.css';
 import {Component} from "react";
 import {jobs, games, gamesEN, jobsEN} from './projectCommon';
 
-let isEnglishBuild = true;
+let isEnglishBuild = false;
 let allGames = games;
 let allJobs = jobs;
 if(isEnglishBuild){
     allGames = gamesEN;
     allJobs = jobsEN;
 }
+const pokiGames = ['age'];
 
 
 function isElementVisible(target) {
@@ -88,6 +89,9 @@ class App extends Component {
             showAboutGame: id
         });
     }
+    isPokiGame = (id) => {
+        return pokiGames.includes(id);
+    }
     onGameMouseOut = () => {
         this.setState({
             showAboutGame: 'no'
@@ -95,7 +99,7 @@ class App extends Component {
     }
     onGameClick = (id) => {
         if(id === 'age'){
-            window.open('https://yandex.com/games/app/233663?lang=en', '_blank');
+            window.open('https://poki.com/en/g/era-evolution', '_blank');
         }
     }
     toggleMenu = () => {
@@ -161,6 +165,10 @@ class App extends Component {
                                                 <div className="ourGames__description">{game.description}</div>
                                             </div>
                                             : ''
+                                    }
+                                    {
+                                        this.isPokiGame(game.id) ? <div className="ourGames__poki">Play on Poki!</div>
+                                        : ''
                                     }
 
                                 </div>

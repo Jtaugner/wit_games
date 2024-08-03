@@ -534,3 +534,17 @@ a{
   font-size: 1.6rem;
   margin-bottom: 4px;
 }
+
+/**/
+.ourGames__poki{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: 2px 30px;
+  border-radius: 0 0 7px 7px;
+  background-color: #2a61fe;
+  transform: translateX(-50%);
+}
