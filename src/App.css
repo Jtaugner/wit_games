@@ -43,6 +43,8 @@ header{
 
   background: url(assets/logo.svg) center center no-repeat;
   background-size: 100%;
+
+  cursor: pointer !important;
 }
 
 .link{
@@ -547,4 +549,16 @@ a{
   border-radius: 0 0 7px 7px;
   background-color: #2a61fe;
   transform: translateX(-50%);
+}
+
+.privacy-link{
+  position: relative;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  margin-top: 20px;
+  color: rgb(197, 194, 194);
+  /* text-decoration: underline; */
+  cursor: pointer;
+
 }

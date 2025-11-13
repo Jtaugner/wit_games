@@ -1,0 +1,117 @@
+server {
+    listen       0.0.0.0:80 default_server;
+    server_name  wit.games wit2699998.nichost.ru www.wit.games www.wit2699998.nichost.ru;
+
+
+    gzip on;
+    gzip_http_version 1.0;
+    gzip_vary on;
+    gzip_comp_level 6;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_types text/plain application/xhtml+xml text/css application/css application/xml application/xml+rss text/javascript application/javascript application/x-javascript text/js image/svg+xml;
+    gzip_proxied any;
+    gzip_disable "MSIE [1-6]\.";
+
+
+    location / {
+        proxy_pass         http://127.0.0.1:8080;
+        proxy_redirect     http://wit.games:8080/ /;
+        proxy_redirect     http://wit2699998.nichost.ru:8080/ /;
+        proxy_redirect     http://www.wit.games:8080/ /;
+        proxy_redirect     http://www.wit2699998.nichost.ru:8080/ /;
+
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $thescheme;
+        proxy_set_header   X-Request-Scheme  $thescheme;
+
+
+        client_max_body_size       1g;
+        client_body_buffer_size    128k;
+
+        proxy_connect_timeout      90;
+        proxy_send_timeout         900;
+        proxy_read_timeout         900;
+
+        proxy_buffer_size          64k;
+        proxy_buffers              8 32k;
+        proxy_busy_buffers_size    64k;
+        proxy_temp_file_write_size 64k;
+    }
+
+
+    location /.well-known/acme-challenge/ {
+        proxy_pass         http://127.0.0.1:8080;
+        proxy_redirect     http://wit.games:8080/ /;
+        proxy_redirect     http://wit2699998.nichost.ru:8080/ /;
+        proxy_redirect     http://www.wit.games:8080/ /;
+        proxy_redirect     http://www.wit2699998.nichost.ru:8080/ /;
+
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $thescheme;
+        proxy_set_header   X-Request-Scheme  $thescheme;
+
+
+        client_max_body_size       1g;
+        client_body_buffer_size    128k;
+
+        proxy_connect_timeout      90;
+        proxy_send_timeout         900;
+        proxy_read_timeout         900;
+
+        proxy_buffer_size          64k;
+        proxy_buffers              8 32k;
+        proxy_busy_buffers_size    64k;
+        proxy_temp_file_write_size 64k;
+
+        proxy_intercept_errors     on;
+        log_not_found              off;
+        error_page                 404 = @acme-validation-server;
+    }
+
+    location @acme-validation-server {
+        resolver                   10.3.0.116;
+        resolver_timeout           5s;
+        set $acme_server           cale.hosting.nic.ru;
+        proxy_set_header           Host cale.hosting.nic.ru;
+        proxy_pass                 http://127.0.0.1$acme_server;
+        proxy_intercept_errors     on;
+        log_not_found              off;
+        error_page                 404 = @fallback;
+    }
+    # Static files location
+    location ~* ^.+\.(jpg|jpeg|gif|swf|png|ico|mp3|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|avi|ppt|txt|tar|mid|midi|wav|bmp|rtf|wmv|mpeg|mpg|mp4|m4a|spx|ogx|ogv|oga|webm|weba|ogg|tbz|js|7z|woff|svg|iso)$ {
+        root   /home/wit2699998/wit.games/docs;
+        access_log  /var/log/nginx/wit.games.access_log  combined;
+        error_page 404 = @fallback;
+        log_not_found off;
+        accel_htaccess_switch on;
+    }
+
+    location @fallback {
+        proxy_pass http://127.0.0.1:8080;
+
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $thescheme;
+        proxy_set_header   X-Request-Scheme  $thescheme;
+
+
+        client_max_body_size       1g;
+        client_body_buffer_size    128k;
+
+        proxy_connect_timeout      90;
+        proxy_send_timeout         900;
+        proxy_read_timeout         900;
+
+        proxy_buffer_size          64k;
+        proxy_buffers              8 32k;
+        proxy_busy_buffers_size    64k;
+        proxy_temp_file_write_size 64k;
+    }
+}

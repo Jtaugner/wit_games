@@ -1,4 +1,4 @@
-export const games = [
+export const games: Array<{ id: string; title: string; description: string }> = [
     {
         id: 'rpg',
         title: 'Pangea 2D',
@@ -9,11 +9,11 @@ export const games = [
         title: 'Весёлый фермер',
         description: 'Возьми под контроль убыточную ферму и преврати её в настоящий процветающий бизнес! Выращивай растения, ухаживай за милыми животными и развивай своё производство!'
     },
-    {
-        id: 'age',
-        title: 'Эпоха: Эволюция',
-        description: 'Пробейся сквозь толпу врагов и захвати вражеские земли! В игре Эпоха: Эволюция тебе предстоит взять под своё предводительство отряд доблестных воинов и с помощью правильной стратегии привести его к победе! '
-    },
+    // {
+    //     id: 'age',
+    //     title: 'Эпоха: Эволюция',
+    //     description: 'Пробейся сквозь толпу врагов и захвати вражеские земли! В игре Эпоха: Эволюция тебе предстоит взять под своё предводительство отряд доблестных воинов и с помощью правильной стратегии привести его к победе! '
+    // },
     {
         id: 'words',
         title: 'Слова из слова',
@@ -41,14 +41,14 @@ export const gamesEN = [
         title: 'Lucky Farmer',
         description: 'Take control of an unprofitable farm and turn it into a real thriving business! Grow plants, take care of cute animals and develop your production!'
     },
-    {
-        id: 'age',
-        title: 'Era: Evolution',
-        description: 'Fight your way through the crowd of enemies and capture enemy lands! In the game Era: Evolution, you have to take under your leadership a detachment of valiant warriors and lead them to victory with the right strategy!'
-    },
+    // {
+    //     id: 'age',
+    //     title: 'Era: Evolution',
+    //     description: 'Fight your way through the crowd of enemies and capture enemy lands! In the game Era: Evolution, you have to take under your leadership a detachment of valiant warriors and lead them to victory with the right strategy!'
+    // },
 ];
 
-export const jobs = [
+export const jobs: Array<{ title: string; requirements: string[]; link: string }> = [
     {
         title: 'HTML-5 разработчик',
         requirements: [
@@ -73,7 +73,7 @@ export const jobs = [
     }
 ];
 
-export const jobsEN = [
+export const jobsEN: Array<{ title: string; requirements: string[]; link: string }> = [
     {
         title: 'HTML-5 developer',
         requirements: [

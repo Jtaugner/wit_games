@@ -1,0 +1,28 @@
+.privacy-container{
+     margin-top: 80px;
+     width: 80%;
+     min-width: 400px;
+     max-width: 900px;
+     padding: 20px;
+     margin: 80px auto 0 auto;
+     font-family: 'Montserrat', 'Arial', sans-serif;
+}
+.privacy-title{
+     font-size: 4rem;
+     margin-bottom: 10px;
+}
+.privacy-subtitle{
+     font-size: 2rem;
+     margin: 10px 0;
+}
+.privacy-text{
+     font-size: 1.8rem;
+}
+.privacy-text a{
+     color: #313131;
+     text-decoration: underline;
+     cursor: pointer;
+}
+.site-link{
+     color: #828080;
+}
